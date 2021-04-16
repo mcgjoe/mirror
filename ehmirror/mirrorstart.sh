@@ -12,7 +12,7 @@ parse_dns () {
 
 SOURCE_DNS=$(parse_dns $SOURCE_CON_STR)
 DEST_DNS=$(parse_dns $DEST_CON_STR)
-CONSUMER_CONFIG="bootstrap.servers=71.224.40.97:2181\group.id=example-mirrormaker-group\exclude.internal.topics=true\client.id=mirror_maker_producer;"
+CONSUMER_CONFIG="bootstrap.servers=xx.xxx.xx.97:2181\group.id=example-mirrormaker-group\exclude.internal.topics=true\client.id=mirror_maker_producer;"
 echo -e $CONSUMER_CONFIG > consumer.config
 
 PRODUCER_CONFIG="bootstrap.servers=$DEST_DNS:9093\nclient.id=mirror_maker_producer\nrequest.timeout.ms=60000\nsasl.mechanism=PLAIN\nsecurity.protocol=SASL_SSL\nsasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username=\"\$ConnectionString\" password=\"$DEST_CON_STR\";"
