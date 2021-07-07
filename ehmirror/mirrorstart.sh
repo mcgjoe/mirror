@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
-parse_dns () {START=`expr index "$1" sb://`
+parse_dns () {
+        START=`expr index "$1" sb://`
         END=`expr index "$1" \;`
         SSTART=$((START+5))
         #SSTART=$(echo $START + 5 | bc)
